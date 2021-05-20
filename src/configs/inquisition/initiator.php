@@ -11,7 +11,8 @@
 	$sth = $pdo->query("SELECT * FROM `config__pages` WHERE `url`='{$url_patch}'");
 	
 	if(!$sth->rowCount()) {
-		exit('<script>setTimeout(function() {window.location.href = "/404";}, 1);</script>');
+	header('Location: $_SERVER['HTTP_HOST'].'/404'');
+	exit;
 	}
 	
 	$sth->setFetchMode(PDO::FETCH_OBJ);
